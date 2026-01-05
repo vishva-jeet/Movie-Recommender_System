@@ -3,11 +3,26 @@ import pickle
 import pandas as pd
 import requests
 
+import streamlit as st
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+movies = pickle.load(open("movies.pkl", "rb"))
+@st.cache_data
+def compute_similarity(movies_df):
+    cv = CountVectorizer(max_features=5000, stop_words="english")
+    vectors = cv.fit_transform(movies_df["combined_features"]).toarray()
+    similarity = cosine_similarity(vectors)
+    return similarity
+
+similarity = compute_similarity(movies)
+
+
+
 #data load
 movies_dict = pickle.load(open('movies_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 
-similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 st.title('Movie Recommendation System')
 
