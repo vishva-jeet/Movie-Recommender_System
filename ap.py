@@ -28,7 +28,7 @@ st.title('Movie Recommendation System')
 
 #poster
 def fetch_poster(movie_id):
-    response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=17ca36a3e45b2e160c822f0a467c90f2&language=en-US'.format(movie_id))
+    response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=#####YOUR--API--HERE ###&language=en-US'.format(movie_id))
     data = response.json()
     return "https://image.tmdb.org/t/p/w500" + data['poster_path']
 
