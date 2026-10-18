@@ -146,6 +146,3 @@ To deploy your own instance:
 
 - GitHub: [vishva-jeet](https://github.com/vishva-jeet)
 
-## 📄 License
-
-This project is available for educational and portfolio purposes. Add a license file if you intend to distribute it under a specific open-source license.
